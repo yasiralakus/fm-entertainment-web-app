@@ -24,6 +24,12 @@ export default function Home() {
                         data?.map(x => (
 
                             <div className="grid-item">
+                                <div className="play">
+                                    <button>
+                                        <img src="./assets/icon-play.svg" alt="" />
+                                        <p>Play</p>
+                                    </button>
+                                </div>
                                 <img src={x.thumbnail.regular.large} alt="" />
                                 <div>
                                     <p>{x.year}</p>

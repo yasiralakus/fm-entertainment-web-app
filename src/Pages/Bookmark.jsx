@@ -1,7 +1,14 @@
-import data from "../data.json"
+import { useState } from "react";
+import database from "../data.json"
 
 export default function Bookmark() {
 
+    const [data, setData] = useState(database);
+
+    function deleteBookmark(title) {
+        const updateData = data.filter(item => item.title !== title);
+        setData(updateData);
+    }
 
     return (
         <>
@@ -19,6 +26,13 @@ export default function Bookmark() {
                         data?.filter(x => x.category === 'Movie' && x.isBookmarked).map(x => (
 
                             <div className="grid-item">
+                                <div className="play">
+                                    <button>
+                                        <img src="./assets/icon-play.svg" alt="" />
+                                        <p>Play</p>
+                                    </button>
+                                </div>
+                                <button onClick={() => deleteBookmark(x.title)}><i className="fa-solid fa-bookmark"></i></button>
                                 <img src={x.thumbnail.regular.large} alt="" />
                                 <div>
                                     <p>{x.year}</p>
@@ -42,6 +56,13 @@ export default function Bookmark() {
                         data?.filter(x => x.category === 'TV Series' && x.isBookmarked).map(x => (
 
                             <div className="grid-item">
+                                <div className="play">
+                                    <button>
+                                        <img src="./assets/icon-play.svg" alt="" />
+                                        <p>Play</p>
+                                    </button>
+                                </div>
+                                <button onClick={() => deleteBookmark(x.title)}><i className="fa-solid fa-bookmark"></i></button>
                                 <img src={x.thumbnail.regular.large} alt="" />
                                 <div>
                                     <p>{x.year}</p>

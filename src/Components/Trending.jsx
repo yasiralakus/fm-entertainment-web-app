@@ -10,7 +10,7 @@ export default function App() {
   return (
     <>
       <Swiper
-        slidesPerView={3.5}
+        slidesPerView={2.5}
         spaceBetween={40}
         loop={true}
         pagination={{
@@ -27,6 +27,12 @@ export default function App() {
                 data?.filter(x => x.isTrending).map(x => (
                     <SwiperSlide>
                         <div className="trending-item">
+                            <div className="trending-play">
+                                    <button>
+                                        <img src="./assets/icon-play.svg" alt="" />
+                                        <p>Play</p>
+                                    </button>
+                                </div>
                             <img src={x.thumbnail?.trending?.large} alt="" />
                             <div className="trending-item-details">
                                 <div>
